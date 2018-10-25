@@ -10,20 +10,26 @@ from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
 import matplotlib.ticker as ticker
 
+#edit accordingly below
+min=x
+max=x 
+rms=x
+ra=x
+dec=x
 
 fig = plt.figure(figsize=(8, 8))
 gc=aplpy.FITSFigure("XXX.fits", figure=fig)
 
-gc.recenter(254.28533, -4.0988056, radius=0.0009722)
+gc.recenter(ra, dec, radius=0.0009722)
 gc.set_theme("publication")
-gc.show_colorscale(cmap='viridis',vmin=1.e-6,vmax=1.6e-5)
+gc.show_colorscale(cmap='viridis',vmin=min,vmax=max)
 #gc.add_scalebar(0.00833333, "10\'\'")
 gc.add_label(254.28533, -4.0988056, '+', color='red', size=20, layer='point')
 
-#gc.show_contour("XXX.fits", levels=[30.e-6,40.e-6,50.e-6, 60.e-6, 70.e-6, 80.e-6, 90.e-6, 100.e-6,110.e-6,120.e-6,130.e-6,140.e-6,150.e-6] , colors='red', layer='cont')
+#gc.show_contour("XXX.fits", levels=[5*rms, 10*rms, 15*rms] , colors='red', layer='cont')
 
 axisf3 = fig.add_axes([0.91,0.1145,0.02,0.773])
-normf3 = mc.Normalize(vmin=1.e-6, vmax=1.6e-5)
+normf3 = mc.Normalize(vmin=min, vmax=max)
 
 cbf3 = clm.ColorbarBase(axisf3, cmap='viridis', norm=normf3, orientation='vertical', format='%0.1e')
 cbf3.set_label('Flux (Jy/beam)',fontsize = 20)
