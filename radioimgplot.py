@@ -14,17 +14,16 @@ import matplotlib.ticker as ticker
 min=x
 max=x 
 rms=x
-ra=x
-dec=x
+
 
 fig = plt.figure(figsize=(8, 8))
 gc=aplpy.FITSFigure("XXX.fits", figure=fig)
 
-gc.recenter(ra, dec, radius=0.0009722)
+gc.recenter('ra', 'dec', radius=0.01) #ra, dec should be given in degrees and radius can be adjusted
 gc.set_theme("publication")
 gc.show_colorscale(cmap='viridis',vmin=min,vmax=max)
 #gc.add_scalebar(0.00833333, "10\'\'")
-gc.add_label(254.28533, -4.0988056, '+', color='red', size=20, layer='point')
+gc.add_label('ra', 'dec', '+', color='blue', size=20, layer='point') #ra, dec should be given in degrees
 
 #gc.show_contour("XXX.fits", levels=[5*rms, 10*rms, 15*rms] , colors='red', layer='cont')
 
