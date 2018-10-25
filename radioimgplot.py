@@ -45,4 +45,4 @@ gc.axis_labels.set_font(size='x-large')
 gc.set_title("xxx",fontsize = 25)
 
 plt.show()
-gc.save('outac.png', format='png')
+gc.save('out.png', format='png')
