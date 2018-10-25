@@ -27,11 +27,14 @@ normf3 = mc.Normalize(vmin=1.e-6, vmax=1.6e-5)
 
 cbf3 = clm.ColorbarBase(axisf3, cmap='viridis', norm=normf3, orientation='vertical', format='%0.1e')
 cbf3.set_label('Flux (Jy/beam)',fontsize = 20)
+
 gc.add_beam()
 gc.beam.show()
-gc.beam.set_color('white')
-gc.beam.set_edgecolor('white')
-gc.beam.set_facecolor('white')
+gc.beam.set_color('blue')
+gc.beam.set_edgecolor('blue')
+gc.beam.set_facecolor('blue')
+gc.beam.set_borderpad(0)
+gc.beam.set_frame(True)
 
 gc.axis_labels.show()
 gc.tick_labels.show()
