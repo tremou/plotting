@@ -16,7 +16,7 @@ max=x
 rms=x
 
 
-fig = plt.figure(figsize=(8, 8))
+fig = plt.figure(figsize=(10, 10))
 gc=aplpy.FITSFigure("XXX.fits", figure=fig)
 
 gc.recenter('ra', 'dec', radius=0.01) #ra, dec should be given in degrees and radius can be adjusted
@@ -27,7 +27,8 @@ gc.add_label('ra', 'dec', '+', color='blue', size=20, layer='point') #ra, dec sh
 
 #gc.show_contour("XXX.fits", levels=[5*rms, 10*rms, 15*rms] , colors='red', layer='cont')
 
-axisf3 = fig.add_axes([0.91,0.1145,0.02,0.773])
+axisf3 = fig.add_axes([0.92,0.1145,0.02,0.768])
+
 normf3 = mc.Normalize(vmin=min, vmax=max)
 
 cbf3 = clm.ColorbarBase(axisf3, cmap='viridis', norm=normf3, orientation='vertical', format='%0.1e')
