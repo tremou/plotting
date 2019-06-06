@@ -9,7 +9,7 @@ from matplotlib import ticker
 from matplotlib.ticker import ScalarFormatter
 
 ax = plt.subplot(212)
-
+ax.subplots_adjust(hspace=0)
 
 
 timefunc = lambda d: mdates.date2num(datetime.strptime(d, '%Y %m %d %H %M %S'))
